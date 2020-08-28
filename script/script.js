@@ -14,21 +14,24 @@ function game() {
 
     function gameMechanic(gamerSolution) {
 
-        if (!isNumber(userNumber)) {
-            userNumber = prompt('Введи число!');
-        }
-
-        if (userNumber < gameNumber) {
-            userNumber = prompt('Загаданное число больше');
-        } else if (userNumber > gameNumber) {
-            userNumber = prompt('Загаданное число меньше');
-        }
-
         if (userNumber === null) {
             alert('game over');
+            return 0;
         }
 
-        if (userNumber !== gameNumber) {
+        if (gameNumber === userNumber) {
+            alert('You won the game!');
+            return 0;
+        }
+
+        if (!isNumber(userNumber)) {
+            userNumber = prompt('Введи число!');
+            gameMechanic(userNumber);
+        } else if (userNumber < gameNumber) {
+            userNumber = prompt('Загаданное число больше');
+            gameMechanic(userNumber);
+        } else if (userNumber > gameNumber) {
+            userNumber = prompt('Загаданное число меньше');
             gameMechanic(userNumber);
         }
 
