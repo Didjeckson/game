@@ -15,13 +15,11 @@ function game() {
     function gameMechanic(gamerSolution) {
 
         if (userNumber === null) {
-            alert('game over');
             return 0;
         }
 
         if (gameNumber === userNumber) {
-            alert('You won the game!');
-            return 0;
+            return 1;
         }
 
         if (!isNumber(userNumber)) {
@@ -37,7 +35,13 @@ function game() {
 
     }
 
-    gameMechanic(userNumber);
+    if (!gameMechanic(userNumber)) {
+        alert('You won the game!');
+    } else {
+        alert('game over');
+    }
+
+
 }
 
 game();
