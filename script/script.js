@@ -1,5 +1,9 @@
 'use strict';
 
+let isNumber = function (n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
 function game() {
     let gameNumber = Math.floor(Math.random() * 100);
     if (gameNumber === 0) {
@@ -10,7 +14,7 @@ function game() {
 
     function gameMechanic(gamerSolution) {
 
-        if (userNumber === isNaN) {
+        if (!isNumber(userNumber)) {
             userNumber = prompt('Введи число!');
         }
 
