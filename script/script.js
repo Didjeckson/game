@@ -24,7 +24,7 @@ function game() {
             userNumber = prompt('Загаданное число меньше');
         }
 
-        if (userNumber === false) {
+        if (userNumber === null) {
             alert('game over');
         }
 
