@@ -6,6 +6,7 @@ let isNumber = function (n) {
 
 function game() {
     let gameNumber = Math.floor(Math.random() * 100);
+    console.log(gameNumber);
     if (gameNumber === 0) {
         game();
     }
@@ -28,18 +29,20 @@ function game() {
             gameMechanic(userNumber);
         } else if (userNumber < gameNumber) {
             lives--;
-            userNumber = prompt('Загаданное число больше, осталось попыток' + lives);
+            userNumber = prompt('Загаданное число больше, осталось попыток ' + lives);
             gameMechanic(userNumber);
         } else if (userNumber > gameNumber) {
             lives--;
-            userNumber = prompt('Загаданное число меньше, осталось попыток' + lives);
+            userNumber = prompt('Загаданное число меньше, осталось попыток ' + lives);
             gameMechanic(userNumber);
         }
 
     }
 
     if (!gameMechanic(userNumber)) {
-        alert('You won the game!');
+        if (confirm('You won the game! Хотите сыграть ещё?')) {
+            game();
+        }
     } else {
         alert('game over');
     }
