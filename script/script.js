@@ -9,6 +9,7 @@ function game() {
     if (gameNumber === 0) {
         game();
     }
+    let lives = 10;
     console.log('Random number: ' + gameNumber);
     let userNumber = prompt('Угадай число от 1 до 100');
 
@@ -26,10 +27,12 @@ function game() {
             userNumber = prompt('Введи число!');
             gameMechanic(userNumber);
         } else if (userNumber < gameNumber) {
-            userNumber = prompt('Загаданное число больше');
+            lives--;
+            userNumber = prompt('Загаданное число больше, осталось попыток' + lives);
             gameMechanic(userNumber);
         } else if (userNumber > gameNumber) {
-            userNumber = prompt('Загаданное число меньше');
+            lives--;
+            userNumber = prompt('Загаданное число меньше, осталось попыток' + lives);
             gameMechanic(userNumber);
         }
 
