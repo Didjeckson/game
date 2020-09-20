@@ -22,7 +22,7 @@ function game() {
 
     function gameMechanic(gamerSolution) {
 
-        if (lives <= 1 && lives >= 1) {
+        if (lives < 2) {
             if (confirm('Game over! Желаете ли сыграть ещё раз?') === false) {
                 return 3;
             } else {
